@@ -272,4 +272,4 @@ public class ObservableSetV2<E> extends ForwardingSet<E> {
 StringBuffer 인스턴스는 거의 항상 단일 스레드에서 쓰였음에도 내부적으로 동기화를 수행했다. 그래서 뒤늦게 StringBuilder가 등장했다.
 (StringBuilder는 단지 동기화 하지않은 StringBuffer다.)
 
-난수 발생기인 `java.util.Random`(내부 동기화)과 `java.util.concurrent.ThreadLocalRandom`(동기화 없음)도 같은 관계이다.
+난수 발생기인 `java.util.Random`(동기화 없음)과 `java.util.concurrent.ThreadLocalRandom`(내부 동기화)도 같은 관계이다.
