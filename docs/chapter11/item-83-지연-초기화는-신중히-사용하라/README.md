@@ -34,19 +34,22 @@
 private final FieldType field = computerFieldValue();
 ```
 
+`초기화 순환성`이 걱정된다면 `synchronized` 지연 초기화 방식을 사용하면 된다.
 
-`초기화 순환성`이 걱정된다면 `synchronized` 접근자를 사용하면 된다.
+`초기화 순환성`이란 A 클래스가 B를 초기화하고, B 클래스가 A를 초기화하는 것을 말한다.
+(example 패키지의 예시 코드를 보면 알겠지만 지연 초기화 없이는 순환성을 가지는 클래스 간의 초기화가 불가능함을 알 수 있다.)
+
+
 
 ```java
 private FieldType field;
 
-private Synchronized FieldType getField() {
+private synchronized FieldType getField() {
     if (field == null) {
         field = computeFieldValue();
         return field;
     }
 }
-
 ```
 
 ## 지연 초기화 기법 2 - 홀더 클래스 관용구
